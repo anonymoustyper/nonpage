@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../Css/reset.css">
+
+        <link rel="stylesheet" href="../Plugins/bootstrap-4.6.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../Plugins/bootstrap-4.6.2-dist/css/bootstrap-grid.min.css">
+
+        <link rel="stylesheet" href="../Css/site.css">
+
+        <script src="../Plugins/jquery-3.2.1.min.js"></script>
+        <script src="../Plugins/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            body{
+                position: relative;
+            }
+            .body .title {
+                width: 90%;
+                box-sizing: border-box;
+                max-width: 872px; 
+                margin-bottom: 15px;
+                font-family: NotoSansTC;
+                font-size: 24px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #282828;
+            }
+
+            .body .content {
+                width: 90%;
+                box-sizing: border-box;
+                padding: 50px;
+                background-color: #f7f8fa;
+                max-width: 972px;
+            }
+
+            .body .content #objid {
+                color:#0000ee;
+            }
+            .body .content .appr-item-list  {
+                margin-bottom: 1rem;
+                
+            }
+            .body .content .appr-item-list .item {
+                margin-top: 15px;
+                
+            }
+            .body .content p.sign  {
+                margin-top: 60px;
+                
+            }
+
+            .body .content p.hint  {
+                font-family: NotoSansTC;
+                font-size: 14px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: left;
+                color: #282828;
+            }
+            .body .btn-next-step {
+                display: block;
+                width: 240px;
+                height: 50px;
+                padding: 13px 45px;
+                background-color: #52b24e;
+                color: #fff;
+                border-width: 0;
+                border-style: none;
+                margin-top: 50px;
+            }
+
+            .sms-content-block {
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+            .sms-content-block .sms-content {
+                width: 90%;
+                box-sizing: border-box;
+                padding: 50px;
+                background-color: #fff;
+                max-width: 972px;
+                position: absolute;
+                top: 50%; right: 50%;
+                transform: translate(50%,-50%);
+            }
+            .sms-content-block .sms-content .sms-content-close {
+                position: absolute;
+                right: 30px;
+                top: 30px;
+                cursor: pointer;
+                z-index: 100;
+            }
+
+            .sms-content-block .sms-content .sms-content-close img {
+                
+                width: 20px;
+            }
+
+            .sms-content-block .sms-content .sms-content-title {
+                box-sizing: border-box;
+                max-width: 872px; 
+                margin: 10px 0 40px 0;
+                font-family: NotoSansTC;
+                font-size: 24px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #282828;
+                text-align: center;
+            }
+
+            .sms-content-block .sms-content .sms-content-input-block {
+                background-color: #F7F8FA;
+            }
+
+            .sms-content-block .sms-content .sms-content-input-block .sms-content-input-gray {
+                padding: 40px 50px;
+                box-sizing: border-box;
+                margin-bottom: 60px;
+            }
+
+            .sms-content-block .sms-content .sms-content-input-block .btn-sms-send {
+                background: transparent;
+                border: 1px solid #52B24E;
+                color: #52B24E;
+                height: 40px;
+                min-width: 150px;
+            }
+
+            .sms-content-block .sms-content .sms-content-button-group {
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;    
+                max-width: 500px;
+            }
+
+            .sms-content-block .sms-content .sms-content-button-group .sms-content-button {
+                width: 240px;
+                height: 50px;
+            }
+
+            .sms-content-block .sms-content .sms-content-button-group .btn-sms-confirm {
+                width: 240px;
+                height: 50px;
+                background: #52B24E;
+                border: 1px solid #52B24E;
+                color: #fff;
+                margin-left: 10px;
+            }
+
+            .sms-content-block .sms-content .sms-content-button-group .btn-sms-cancel {
+                width: 240px;
+                height: 50px;
+                background: transparent;
+                border: 1px solid #52B24E;
+                color: #52B24E;
+                margin-right: 10px;
+            }
+
+            @media (max-width: 767px) {
+
+                .sms-content-block .sms-content {
+                    padding: 50px 20px;
+                }
+
+                .sms-content-block .sms-content .sms-content-button-group {
+                    max-width: 100%;
+                    width: 100%;
+                }
+
+                .sms-content-block .sms-content .sms-content-button-group .sms-content-button {
+                    width: 50%;
+                    height: 40px;
+                }
+            }
+
+            @media  (max-width: 390px) {
+
+                .body .btn-next-step {
+                    width: 90%;
+                }
+
+            }
+
+        </style>
+
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <div class="container container-sm header">
+            <img src="../Res/img-sinyi-logo-green.svg" alt="信義房屋" class="header-logo">
+        </div>
+
+        <div class="border-line"></div>
+
+        <div class="container container-sm stepbar">
+            <h2 class="header-text">委任視訊簽約申請書【買方】</h2>
+            <div class="progress-container">
+                <ul class="progressbar">
+                    <li class="active">
+                        <div class="pc-prog-section">
+                            <div class="pc-prog-ball">1</div>
+                            <p class="pc-prog-title">申請書說明</p>
+                        </div>
+                        
+                        <div class="mb-prog-section">
+                            <!-- <div class="mb-prog-ball">1</div> -->
+                            <p class="mb-prog-title">1 申請書說明</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pc-prog-section">
+                            <div class="pc-prog-ball">2</div>
+                            <p class="pc-prog-title">填寫簽名</p>
+                        </div>
+                        <div class="mb-prog-section">
+                            <div class="mb-prog-ball">2</div>
+                            <!-- <p class="mb-prog-title">2 填寫簽名</p> -->
+                        </div>
+                        <!-- <div class="prog-section-line active"></div> -->
+                         <div class="prog-section-line"></div>
+                    </li>
+                    <li>
+                        <div class="pc-prog-section">
+                            <div class="pc-prog-ball">3</div>
+                            <p class="pc-prog-title">申請完成</p>
+                        </div>
+                        <div class="mb-prog-section">
+                            <div class="mb-prog-ball">3</div>
+                            <!-- <p class="mb-prog-title">3 申請完成</p> -->
+                        </div>
+                        <div class="prog-section-line"></div>
+                    </li>
+                  </ul>
+            </div>            
+        </div>
+        <div class="clearboth"></div>
+        <div class="border-line"></div>
+        
+        <div class="body">
+            <div class="container container-sm title">申請書說明</div>
+
+            <div class="container container-sm content">
+                <p>本人經由信義房屋股份有限公司買受物件編號<span id="objid">【 NK21793 】</span>之不動產，因時、地不便故本人與賣方無法同地簽立不動產買賣契約書，特向信義地政士事務所申請並檢附成交證明文件:</p>
+                <ul class="form-check appr-item-list">
+                    <li class="item custom-checkbox">
+                        <input class="form-check-input custom-control-input" type="checkbox" value="" id="item1" checked>
+                        <label class="form-check-label custom-control-label" for="item1">斡旋金契約書</label>
+                    </li>
+                    <li class="item custom-checkbox">
+                        <input class="form-check-input custom-control-input" type="checkbox" value="" id="item2" checked>
+                        <label class="form-check-label custom-control-label" for="item2">要約書</label>
+
+                    </li>
+                    <li class="item custom-checkbox">
+                        <input class="form-check-input custom-control-input" type="checkbox" value="" id="item3">
+                        <label class="form-check-label custom-control-label" for="item3">定金契約書</label>
+                    </li>                   
+                </ul>
+                <p>利用遠端會議軟體，雙方以視訊方式簽立買賣契約，本人並聲明日後對信義地政士本次簽約方式不為任何異議或主張。</p>
+
+                <p class="sign">謹致 信義地政士聯合事務所</p>
+
+                <p class="sign hint">說明:同意信義地政士事務所對買賣方簽約過程全程錄影錄音，買賣相關權利義務及信義地政士業務執行過程均以契約書面及錄音錄影內容為準，俾免日後爭議。</p>
+            
+            </div>
+
+            <input type="submit" class="container container-sm btn-next-step" value="下一步">
+        </div>
+
+        <div class="border-line"></div>
+
+        <div class="container container-sm footer">
+            <p class="footer-text">&copy; 信義房屋股份有限公司</p>
+        </div>
+
+        <div class="sms-content-block">
+            <div class="container container-sm sms-content">
+                <div class="sms-content-close" id="sms-content-close">
+                    <img src="../Res/cancel.svg">
+                </div>
+                <div class="container container-sm sms-content-title">簡訊動態密碼</div>
+            
+                <div class="sms-content-input-block">
+                    <div class="form-row sms-content-input-gray">
+                        <div class="form-group col-md-5">
+                            <label for="inputSmsP">簡訊動態驗證密碼</label>
+                            <input type="number" class="form-control" id="inputSmsP" placeholder="請輸入驗證碼">
+                        </div>
+                        <div class="form-group col-md-2 align-self-end">
+                            <input type="submit" class="container container-sm btn-sms-send" value="寄送驗證碼">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="container container-sm sms-content-button-block">
+                    <div class="sms-content-button-group">
+                        <input type="submit" class="sms-content-button btn-sms-cancel" value="取消">
+                        <input type="submit" class="sms-content-button btn-sms-confirm" value="確認">
+                    </div>
+                </div> -->
+
+                <div class="sms-content-button-group">
+                    <input type="submit" class="sms-content-button btn-sms-cancel" value="取消">
+                    <input type="submit" class="sms-content-button btn-sms-confirm" value="確認">
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>

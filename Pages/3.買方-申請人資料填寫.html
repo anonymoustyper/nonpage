@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="../Css/reset.css">
+
+        <link rel="stylesheet" href="../Plugins/bootstrap-4.6.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../Plugins/bootstrap-4.6.2-dist/css/bootstrap-grid.min.css">
+
+        <link rel="stylesheet" href="../Css/site.css">
+
+        <script src="../Plugins/jquery-3.2.1.min.js"></script>
+        <script src="../Plugins/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            .body .title {
+                width: 90%;
+                box-sizing: border-box;
+                max-width: 872px; 
+                margin-bottom: 15px;
+                font-family: NotoSansTC;
+                font-size: 24px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #282828;
+            }
+
+            .body .content {
+                width: 90%;
+                box-sizing: border-box;
+                padding: 50px;
+                background-color: #f7f8fa;
+                max-width: 972px;
+                margin-bottom: 175px;
+            }
+
+            .body .content .pc-letter-block-title .appr-item-list  {
+                margin-bottom: 1rem;
+            }
+
+            .body .content .pc-letter-block-title .appr-item-list .item {
+                margin-top: 15px;
+            }
+            .body .content .pc-letter-block-title .appr-item-list .item #inputLetter {
+                margin-top: 8px;
+            }
+            .body .content .pc-letter-block-title .appr-item-list .item .inputLetter-label {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 30px;
+            }
+
+            .body .content .pc-letter-block-title .appr-item-list .item .inputLetter-label::before,
+            .body .content .pc-letter-block-title .appr-item-list .item .inputLetter-label::after {
+                margin-top: 3px;
+            }
+
+            .body .content .required {
+                color: #FF5E5E;
+            }
+            
+            .body .content .phone-block-title {
+                margin-top: 40px;
+            }
+
+            .body .content .addr-block-title .inputAreaBlock,
+            .body .content .addr-block-title .inputRoadBlock {
+                position: relative;
+            }
+
+            .body .content .addr-block-title .inputAreaBlock #inputArea[readonly] {
+                background-color: #fff;
+            }
+
+            .body .content .addr-block-title .inputOverseaRoadGroup {
+                display: none;
+            }
+
+            .body .content .addr-block-title .inputAreaBlock #inputArea,
+            .body .content .addr-block-title .inputRoadBlock #inputRoad {
+                box-sizing: border-box;
+                padding-right: 28px;
+            }
+
+            .body .content .addr-block-title .inputAreaBlock #inputArea {
+                cursor: pointer;
+            }
+
+            .body .content .addr-block-title .inputAreaBlock .inputAreaBlock-ico,
+            .body .content .addr-block-title .inputRoadBlock .inputRoadBlock-ico {
+                position: absolute;
+                right: 5px;
+                top: 9px;
+            }
+
+            .body .content .addr-block-title {
+                margin-bottom: -12px;
+            }
+
+            .body .content .addr-block-title .inputOverseaRoadGroup #inputOverseaRoad {
+                min-height: 38px;
+                height: 38px;
+            }
+
+            .body .content .addr-block {
+                position: relative;
+                width: 100%;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .body .content .addr-block .addr-block-content {
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-sizing: border-box;
+                z-index: 99;
+            }
+
+
+            .body .content .addr-block .addr-block-content .area1-block {
+                width: 100%;
+                padding: 23px 43px;
+                background: #fff;
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+            }
+
+            .body .content .addr-block .addr-block-content .area2-block {
+                display: none;
+                width: 100%;
+                background: #F9FAFB;
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+                margin-bottom: 10px;
+            }
+
+            .body .content .addr-block .addr-block-content .area2-block .mb-item-area2-block {
+                display: block;
+                padding: 23px 43px;
+            }
+
+            .body .content .addr-block .addr-block-content .area-block {
+                margin: 15px 10px;
+            }
+
+            .body .content .addr-block .addr-block-content .mb-area1-header-block,
+            .body .content .road-block .road-block-content .mb-road1-header-block {
+                display: none;
+            }
+
+            .body .content .addr-block .addr-block-content .area2-block .mb-sub-area2-block {
+                display: none;
+            }
+
+            
+            
+            .body .content .road-block {
+                position: relative;
+                width: 100%;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .body .content .road-block .road-block-content {
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-sizing: border-box;
+                max-height: 284px;
+                overflow-y: auto;
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+                z-index: 99;
+            }
+
+
+            .body .content .road-block .road-block-content .road1-block {
+                width: 100%;
+                padding: 16px 0;
+                background: #fff;
+                cursor: pointer;
+            }
+
+            .body .content .road-block .road-block-content .road1-block .road1-block-item {
+                padding: 12px 40px;
+            }
+            .body .content .road-block .road-block-content .road1-block .road1-block-item:hover {
+                background: #61E1A2;
+                color: #fff;
+            }
+
+            .body .content .sign-block {
+               margin-top: 13px;
+            }
+
+            .body .content .sign-block .sign-block-subtitle {
+                color: #101010B2;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            .body .content .sign-block .sign-block-exp {
+                float: left;
+                max-width: 100px;
+                color: #0000EE;
+                line-height: 48px;
+                margin-right: 10px;
+            }
+
+            .body .content .sign-block .btn-sign {
+                float: left;
+                color: #B9B8B8;
+                background: #EFF1F5;
+
+                width: 200px;
+                height: 50px;
+                border: 0;
+                border-radius: 0;
+            }
+
+            .body .content .sign-block .btn-sign:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            .body .content input {
+                outline: none;
+                box-shadow: none;
+            }
+
+
+            .body .content .addr-block .addr-block-content .area2-block .btn-confirm-step {
+                display: none;
+            }
+
+
+            .body .btn-next-step {
+                display: block;
+                width: 240px;
+                height: 50px;
+                padding: 13px 45px;
+                background-color: #52b24e;
+                color: #fff;
+                border-width: 0;
+                border-style: none;
+                margin-top: 50px;
+            }
+
+            @media (max-width: 767px) {
+                .body .content .empty-label {
+                   display: none;
+                }
+
+                .body .btn-next-step {
+                    width: 90%;
+                }
+
+                .body .content .addr-block, .body .content .road-block {
+                    position: inherit;
+                }
+
+                .body .content .addr-block-title .inputRoadBlock #inputRoad {
+                    pointer-events: none;
+                }
+
+                .body .content .addr-block-title .inputOverseaRoadGroup #inputOverseaRoad {
+                    height: 90px;
+                    min-height: 90px;
+                }
+
+                .body .content .addr-block .addr-block-content,
+                .body .content .road-block .road-block-content {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    z-index: 98;
+                }
+
+                .body .content .road-block .road-block-content {
+                    max-height: 100%;
+                }
+
+                .body .content .addr-block .addr-block-content .area1-block, 
+                .body .content .road-block .road-block-content .road1-block {
+                    position: absolute;
+                    left: 0;
+                    top: 49px;
+                    height: calc(100% - 49px);                    
+                    border: none;
+                    border-radius: 0;
+                    z-index: 98;
+                }
+                .body .content .addr-block .addr-block-content .area2-block {
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    top: 50px;
+                    height: 100%;
+                    border: none;
+                    border-radius: 0;
+                    background: #fff;
+                    z-index: 99;
+                }
+
+                .body .content .addr-block .addr-block-content .mb-area1-header-block,
+                .body .content .road-block .road-block-content .mb-road1-header-block {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 49px;
+                    background: #fff;
+                    z-index: 99;
+                    border-bottom: 1px solid #F5F5F5;
+                }
+
+                .body .content .addr-block .addr-block-content .mb-area1-header-block .mb-area1-header-block-title,
+                .body .content .road-block .road-block-content .mb-road1-header-block .mb-road1-header-block-title {
+                    position: absolute;
+                    font-family: Noto Sans TC;
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 29px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    box-sizing: border-box;
+                    width: 200px;
+                    top: 10px;
+                    left: 43px;
+                }
+
+                .body .content .addr-block .addr-block-content .mb-area1-header-block .mb-area1-header-block-close,
+                .body .content .road-block .road-block-content .mb-road1-header-block .mb-road1-header-block-close {
+                    position: absolute;
+                    box-sizing: border-box;
+                    width: 15px;
+                    top: 10px;
+                    right: 15px;
+                    cursor: pointer;
+                }
+
+                .body .content .addr-block .addr-block-content .mb-area1-header-block .mb-area1-header-block-close img,
+                .body .content .road-block .road-block-content .mb-road1-header-block .mb-road1-header-block-close img {
+                    width: 10px;
+                }
+                
+                
+
+                .body .content .addr-block .addr-block-content .area2-block .mb-sub-area2-block {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 103px;
+                    border: none;
+                    border-radius: 0;
+                    z-index: 99;
+                }
+
+                .body .content .addr-block .addr-block-content .area2-block .border-line {
+                    position: relative;
+                    width: 80%;
+                    top: 104px;
+                    border: 1px solid #E7E5E6;
+                    margin: 0 auto;
+
+                }
+
+                .body .content .addr-block .addr-block-content .area2-block .mb-sub-area2-block .mb-sub-area2-block-by-area1 {
+                    position: absolute;
+                    left: 40px;
+                    top: 35px;
+                    z-index: 99;
+
+                    font-family: Noto Sans TC;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 26px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                }
+
+                .body .content .addr-block .addr-block-content .area2-block .mb-sub-area2-block .mb-sub-area2-block-change-area1 {
+                    position: absolute;
+                    right: 27px;
+                    top: 43px;
+                    z-index: 99;
+                    color: #52B24E;
+
+                    font-family: Noto Sans TC;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 20px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    cursor: pointer;
+                }
+
+
+                .body .content .addr-block .addr-block-content .area2-block .mb-item-area2-block {
+                    position: absolute;
+                    left: 0;
+                    top: 104px;
+                    width: 100%;
+                }
+
+                .body .content .addr-block .addr-block-content .area2-block .btn-confirm-step {
+                    display: block;
+                    position: absolute;
+                    width: 90%;
+                    height: 50px;
+                    padding: 13px 45px;
+                    background-color: #52b24e;
+                    color: #fff;
+                    border-width: 0;
+                    border-style: none;
+                    bottom: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            @media  (max-width: 390px) {
+
+                .body .btn-next-step {
+                    width: 90%;
+                }
+
+            }
+
+        </style>
+
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <div class="container container-sm header">
+            <img src="../Res/img-sinyi-logo-green.svg" alt="信義房屋" class="header-logo">
+        </div>
+
+        <div class="border-line"></div>
+
+        <div class="container container-sm stepbar">
+            <h2 class="header-text">委任視訊簽約申請書【買方】</h2>
+            <div class="progress-container">
+                <ul class="progressbar">
+                    <li class="active">
+                        <div class="pc-prog-section">
+                            <div class="pc-prog-ball">1</div>
+                            <p class="pc-prog-title">申請書說明</p>
+                        </div>
+                        
+                        <div class="mb-prog-section">
+                            <div class="mb-prog-ball">1</div>
+                            <!-- <p class="mb-prog-title">1 申請書說明</p> -->
+                        </div>
+                    </li>
+                    <li class="active active-2">
+                        <div class="pc-prog-section">
+                            <div class="pc-prog-ball">2</div>
+                            <p class="pc-prog-title">填寫簽名</p>
+                        </div>
+                        <div class="mb-prog-section">
+                            <!-- <div class="mb-prog-ball">2</div> -->
+                            <p class="mb-prog-title">2 填寫簽名</p>
+                        </div>
+                        <div class="prog-section-line active"></div>
+                         <!-- <div class="prog-section-line"></div> -->
+                    </li>
+                    <li>
+                        <div class="pc-prog-section">
+                            <div class="pc-prog-ball">3</div>
+                            <p class="pc-prog-title">申請完成</p>
+                        </div>
+                        <div class="mb-prog-section">
+                            <div class="mb-prog-ball">3</div>
+                            <!-- <p class="mb-prog-title">3 申請完成</p> -->
+                        </div>
+                        <div class="prog-section-line"></div>
+                    </li>
+                  </ul>
+            </div>            
+        </div>
+        <div class="clearboth"></div>
+        <div class="border-line"></div>
+        
+        <div class="body">
+            <div class="container container-sm title">申請人資料填寫</div>
+
+            <div class="container container-sm content">
+                <div class="pc-letter-block-title" id="pc-letter-block-title">
+                    <ul class="form-check appr-item-list">
+                        <li class="item custom-checkbox">
+                            <input class="form-check-input custom-control-input" type="checkbox" value="" id="inputLetter" />
+                            <label class="form-check-label inputLetter-label custom-control-label" for="inputLetter">本人同意信義房屋以系統產製本文件，並以網路上傳確認碼或電子簽名方式取代書面簽名且同意信義房屋將紀錄相關交易歷程，以確保雙方權益。</label>
+                        </li>        
+                    </ul>  
+                </div>
+
+                <div class="form-row phone-block-title">
+                    <div class="form-group col-md-6">
+                        <label for="inputPhone">聯絡電話 <span class="required">*</span></label>
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="請輸入聯絡電話，例：0912345678">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputId">身份證字號/統一編號 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="inputId" placeholder="請輸入身分證字號">
+                    </div>
+                </div>
+
+                <div class="form-row addr-block-title">
+                    <div class="form-group col-md-3">
+                        <label>地址 <span class="required">*</span></label>
+                        <div class="inputAreaBlock" id="inputAreaBlock">
+                            <input type="text" class="form-control" id="inputArea" placeholder="縣市/區域" readonly>
+                            <input type="hidden" id="inputArea1Hidden" />
+                            <input type="hidden" id="inputArea2Hidden" />
+                            <div class="input-group-append inputAreaBlock-ico">
+                                <img src="../Res/caret-down-fill.svg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 inputRoadGroup">
+                        <label class="empty-label">&nbsp;</label>
+                        <div class="inputRoadBlock" id="inputRoadBlock">
+                            <input type="text" class="form-control" id="inputRoad" placeholder="輸入路段">
+                            <div class="input-group-append inputRoadBlock-ico">
+                                <img src="../Res/caret-down-fill.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 inputFloorGroup">
+                        <label class="empty-label">&nbsp;</label>
+                        <input type="text" class="form-control" id="inputFloor" placeholder="輸入巷號樓層">
+                    </div>
+
+                    <div class="form-group col-md-9 inputOverseaRoadGroup">
+                        <label class="empty-label">&nbsp;</label>
+                        <textarea class="form-control" name="inputOverseaRoad" id="inputOverseaRoad"  placeholder="輸入海外地址"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-row addr-block">
+                    <div class="form-group addr-block-content" id="addr-block-content">
+                        <div class="mb-area1-header-block">
+                            <div class="mb-area1-header-block-title">縣市/區域</div>
+                            <div class="mb-area1-header-block-close" id="mb-area1-header-block-close">
+                                <img src="../Res/cancel.svg">
+                            </div>
+                        </div>
+                        
+                        <div class="area1-block">
+                            
+                        </div>
+                        
+                        <div class="area2-block" id="area2-block">
+                            <div class="mb-sub-area2-block" id="mb-sub-area2-block">
+                                <div class="mb-sub-area2-block-by-area1" id="mb-sub-area2-block-by-area1">台北市</div>
+                                <div class="mb-sub-area2-block-change-area1" id="mb-sub-area2-block-change-area1">切換縣市</div>
+                            </div>
+                            <div class="border-line"></div>
+                            <div class="mb-item-area2-block" id="mb-item-area2-block">
+                                
+                            </div>
+                            
+                            <!-- <input type="submit" class="container container-sm btn-confirm-step" id="btn-confirm-step" value="確認"> -->
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="form-row road-block">
+                    <div class="form-group road-block-content" id="road-block-content">
+                        <div class="mb-road1-header-block">
+                            <div class="mb-road1-header-block-title">路段</div>
+                            <div class="mb-road1-header-block-close" id="mb-road1-header-block-close">
+                                <img src="../Res/cancel.svg">
+                            </div>
+                        </div>
+                        
+                        <div class="road1-block">
+                            <ul class="road1-block-group">
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+
+
+                <div class="form-row sign-block">
+                    <div class="form-group col-md-12">
+                        <label for="inputId">申請人 
+                            <span class="required">*</span>
+                            <span class="sign-block-subtitle">(請核對是否為本人姓名 ，非本人不能簽署)</span>
+                        </label>
+                        <div class="clearboth"></div>
+                        <p class="sign-block-exp" id="sign-block-exp">林子軒</p>
+                        <input type="button" class="form-control btn-sign" id="inputSign" value="簽署" disabled />
+                        <div class="clearboth"></div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" class="container container-sm btn-next-step" value="下一步">
+        </div>
+
+        <div class="border-line"></div>
+
+        <div class="container container-sm footer">
+            <p class="footer-text">&copy; 信義房屋股份有限公司</p>
+        </div>
+
+        <template class="temp-area1-block">
+            <div class="custom-control custom-radio custom-control-inline area-block">
+                <input type="radio" class="custom-control-input" id="" name="area1">
+                <label class="custom-control-label" for=""></label>
+            </div>
+        </template>
+
+        <template class="temp-area2-block">
+            <div class="custom-control custom-radio custom-control-inline area-block">
+                <input type="radio" class="custom-control-input" id="" name="area2">
+                <label class="custom-control-label" for=""></label>
+            </div>
+        </template>
+
+        <template class="temp-road1-block-item">
+            <li class="road1-block-item"></li>
+        </template>
+
+        <script src="" async defer></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                setArea1();
+            });
+
+
+
+            //pc，地址縣市區域 & 路段 box隱藏
+            $(document).click(function(e){
+                if($(e.target).closest('#inputAreaBlock').length <= 0 && $(e.target).closest('#addr-block-content').length <= 0) {
+                    $('#addr-block-content').hide(100);
+
+                    var imgObj = $(this).find('#inputAreaBlock img');
+                    var imgSrc = imgObj.attr('src');
+                    if(imgSrc.indexOf('up') >= 0){
+                        imgObj.attr('src', '../Res/caret-down-fill.svg');
+                    }
+                }
+
+                if($(e.target).closest('#inputRoadBlock').length <= 0 && $(e.target).closest('#road-block-content').length <= 0) {
+                    $('#road-block-content').hide(100);
+
+                    var imgObj = $(this).find('#inputRoadBlock img');
+                    var imgSrc = imgObj.attr('src');
+                    if(imgSrc.indexOf('up') >= 0){
+                        imgObj.attr('src', '../Res/caret-down-fill.svg');
+                    }
+                }
+            });
+            //點擊地址輸入框，顯示縣市box
+            $('#inputAreaBlock').on('click', this, function(){
+                $('#addr-block-content').show(100);
+
+                var imgObj = $(this).find('img');
+                var imgSrc = imgObj.attr('src');
+                if(imgSrc.indexOf('down') >= 0){
+                    imgObj.attr('src', '../Res/caret-up-fill.svg');
+                }
+            });
+
+            //點擊縣市
+            $('.addr-block .area1-block').on('click', 'input[name="area1"]', function(){
+
+                var area1Text = $(this).closest('.area-block').find('label').text();
+                $('#mb-sub-area2-block-by-area1').text(area1Text);
+                
+                if(area1Text != '海外'){
+                    setArea2(area1Text);
+                    $('#area2-block').show(100);
+                }else{
+                    $('#inputRoad').val('');
+                    $('.inputRoadGroup').hide(100);
+                    $('.inputFloorGroup').hide(100);
+                    $('.inputOverseaRoadGroup').show(100);
+                    $('.road-block .road1-block .road1-block-group').html('');
+                    $('#area2-block').hide(100);
+                    var area1Text = $(this).closest('.addr-block-content')
+                        .find('.area1-block .area-block input[name=area1]:checked')
+                        .closest('.area-block')
+                        .find('label')
+                        .text();
+
+                    $('#inputArea').val(area1Text);
+                    $('#inputArea1Hidden').val(area1Text);
+                    $('#inputArea2Hidden').val('');
+                    $('#addr-block-content').hide(100);
+
+                    var imgObj = $(this).closest('.content').find('#inputAreaBlock img');
+                    var imgSrc = imgObj.attr('src');
+                    if(imgSrc.indexOf('up') >= 0){
+                        imgObj.attr('src', '../Res/caret-down-fill.svg');
+                    }
+                }
+            });
+
+            //點擊區域
+            $('.addr-block .area2-block #mb-item-area2-block').on('click', 'input[name="area2"]', function(){
+                $('#inputRoad').val('');
+                
+                var area1Text = $(this).closest('.addr-block-content')
+                        .find('.area1-block .area-block input[name=area1]:checked')
+                        .closest('.area-block')
+                        .find('label')
+                        .text();
+
+                if(area1Text != '海外'){
+                    $('.inputRoadGroup').show(100);
+                    $('.inputFloorGroup').show(100);
+                    $('.inputOverseaRoadGroup').hide(100);
+
+                    var area2Text = $(this).closest('.area-block').find('label').text();
+                    var areaText = area1Text + '/' + area2Text;
+                    $('#inputArea').val(areaText);
+                    $('#inputArea1Hidden').val(area1Text);
+                    $('#inputArea2Hidden').val(area2Text);
+
+                    setRoadByArea(area1Text, area2Text, null);
+
+                    $('#addr-block-content').hide(100);
+                }
+
+                var imgObj = $(this).closest('.content').find('#inputAreaBlock img');
+                var imgSrc = imgObj.attr('src');
+                if(imgSrc.indexOf('up') >= 0){
+                    imgObj.attr('src', '../Res/caret-down-fill.svg');
+                }
+            });
+
+            //路段輸入事件
+            $('#inputRoad').on('input', this, function(){
+                var area1Text = $('#inputArea1Hidden').val();
+                var area2Text = $('#inputArea2Hidden').val();
+                var inputText = $(this).val();
+
+                if(!!area1Text && !!area2Text){
+                    setRoadByArea(area1Text, area2Text, inputText);
+                }
+
+                $('#road-block-content').show(100);
+            });
+
+            //mb，關閉縣市區域box
+            $('#btn-confirm-step').on('click', this, function(){
+                $('#addr-block-content').hide(100);
+            });
+
+
+            //點擊路段輸入框，顯示縣市box
+            $('#inputRoadBlock').on('click', this, function(){
+                $('#road-block-content').show(100);
+
+                var imgObj = $(this).find('img');
+                var imgSrc = imgObj.attr('src');
+                if(imgSrc.indexOf('down') >= 0){
+                    imgObj.attr('src', '../Res/caret-up-fill.svg');
+                }
+            });
+
+            //mb，點擊x關閉縣市區域box
+            $('#mb-area1-header-block-close').on('click', this, function(){
+                
+                var imgObj = $(this).closest('.content').find('#inputAreaBlock img');
+                var imgSrc = imgObj.attr('src');
+                if(imgSrc.indexOf('up') >= 0){
+                    imgObj.attr('src', '../Res/caret-down-fill.svg');
+                }
+
+                $('#addr-block-content').hide(100);
+            });
+
+            //mb，點擊切換縣市，關閉區域box
+            $('#mb-sub-area2-block-change-area1').on('click', this, function(){
+                $('#area2-block').hide(100);
+            });
+
+            //mb，點擊x關閉地址路段box
+            $('#mb-road1-header-block-close').on('click', this, function(){
+                $('#road-block-content').hide(100);
+
+                var imgObj = $(this).closest('.content').find('#inputRoadBlock img');
+                var imgSrc = imgObj.attr('src');
+                if(imgSrc.indexOf('up') >= 0){
+                    imgObj.attr('src', '../Res/caret-down-fill.svg');
+                }
+            });
+
+            //pc & mb，同意條款，亮起簽署按鈕
+            $('#inputLetter, #inputLetterAgreeByMobile').on('click', this, function(){
+                var inputLetterIsChecked = $(this).is(':checked');
+                var inputLetterlId = $(this).attr("id");
+
+
+                var signBtnObj = $('.body .content .sign-block .btn-sign');
+                if(inputLetterIsChecked) { //已勾起狀態
+                    signBtnObj.prop('disabled', false);
+                    signBtnObj.css("background", "#52B24E");
+                    signBtnObj.css("color", "#fff");
+                    
+                }else{ //未勾起狀態
+                    signBtnObj.prop('disabled', true);
+                    signBtnObj.css("background", "#EFF1F5");
+                    signBtnObj.css("color", "#B9B8B8");
+
+                }
+
+                if(inputLetterlId == 'inputLetter'){
+                    $('#inputLetterAgreeByMobile').prop('checked', inputLetterIsChecked);
+                }else{
+                    $('#inputLetter').prop('checked', inputLetterIsChecked);
+                }
+            });
+
+            //pc & mb，選取路段
+            $('.body .content .road-block .road-block-content .road1-block').on('click', '.road1-block-item', function(){
+                var road = $(this).text();
+                $('#inputRoad').val(road);
+
+                $('#road-block-content').hide(100);
+
+                var imgObj = $('#inputRoadBlock img');
+                var imgSrc = imgObj.attr('src');
+                if(imgSrc.indexOf('up') >= 0){
+                    imgObj.attr('src', '../Res/caret-down-fill.svg');
+                }
+
+                var area1Text = $('#inputArea1Hidden').val();
+                var area2Text = $('#inputArea2Hidden').val();
+
+                setRoadByArea(area1Text, area2Text, '');
+            }); 
+
+            //Ajax取得縣市列表
+            function getArea1(){
+
+                var items = [
+                    {
+                        area1Text: '台北市',
+                        area1Value: '01'
+                    },
+                    {
+                        area1Text: '新北市',
+                        area1Value: '02'
+                    },
+                    {
+                        area1Text: '基隆市',
+                        area1Value: '03'
+                    },
+                    {
+                        area1Text: '新竹市',
+                        area1Value: '04'
+                    },
+                    {
+                        area1Text: '新竹縣',
+                        area1Value: '05'
+                    },
+                    {
+                        area1Text: '桃園市',
+                        area1Value: '06'
+                    },
+                    {
+                        area1Text: '苗栗縣',
+                        area1Value: '07'
+                    },
+                    {
+                        area1Text: '台中市',
+                        area1Value: '08'
+                    },
+                    {
+                        area1Text: '彰化縣',
+                        area1Value: '09'
+                    },
+                    {
+                        area1Text: '海外',
+                        area1Value: '10'
+                    }
+                ];
+
+                return items;
+
+            }
+
+            //設定縣市列表
+            function setArea1(){
+                //取得縣市列表
+                var area1List = getArea1();
+
+                var template = (function (){
+                    var html = $("template.temp-area1-block").html();
+                    return $(html).clone();
+                })();
+
+                var mix = '';
+
+                $.each(area1List, function (key, ele){
+                    template.find('label').text(ele['area1Text']);
+                    template.find('label').attr('for', 'input1Area' + key);
+                    template.find('input').attr('id', 'input1Area' + key);
+                    mix += template[0].outerHTML;
+                })
+
+
+                $('.addr-block .area1-block').html(mix);
+            }
+
+            //Ajax取得區域列表
+            function getArea2(area1){
+
+                var items = [
+                    {
+                        area2Text: '中正區',
+                        area2Value: '01'
+                    },
+                    {
+                        area2Text: '大同區',
+                        area2Value: '02'
+                    },
+                    {
+                        area2Text: '中正區',
+                        area2Value: '03'
+                    },
+                    {
+                        area2Text: '文山區',
+                        area2Value: '04'
+                    },
+                    {
+                        area2Text: '內湖區',
+                        area2Value: '05'
+                    },
+                    {
+                        area2Text: '中山區',
+                        area2Value: '06'
+                    },
+                    {
+                        area2Text: '信義區',
+                        area2Value: '07'
+                    },
+                    {
+                        area2Text: '萬華區',
+                        area2Value: '08'
+                    },
+                    {
+                        area2Text: '北投區',
+                        area2Value: '09'
+                    }
+                ];
+
+                return items;
+
+            }
+
+            //設定區域列表
+            function setArea2(area1){
+                //取得區域列表
+                var area2List = getArea2(area1);
+
+                var template = (function (){
+                    var html = $("template.temp-area2-block").html();
+                    return $(html).clone();
+                })();
+
+                var mix = '';
+
+                $.each(area2List, function (key, ele){
+                    template.find('label').text(ele['area2Text']);
+                    template.find('label').attr('for', 'input2Area' + key);
+                    template.find('input').attr('id', 'input2Area' + key);
+                    mix += template[0].outerHTML;
+                })
+
+                $('.addr-block .area2-block #mb-item-area2-block').html(mix);
+            }
+            
+            //Ajax取得路段列表
+            function getRoadByArea(area1, area2, containStr){
+
+                var items = [
+                    {
+                        roadText: '信義區一段',
+                        roadValue: '01'
+                    },
+                    {
+                        roadText: '信義區二段',
+                        roadValue: '02'
+                    },
+                    {
+                        roadText: '信義區三段',
+                        roadValue: '03'
+                    },
+                    {
+                        roadText: '信義區四段',
+                        roadValue: '04'
+                    },
+                    {
+                        roadText: '信義區五段',
+                        roadValue: '05'
+                    },
+                    {
+                        roadText: '信義區六段',
+                        roadValue: '06'
+                    },
+                ];
+
+                if(!!containStr) {
+                    var result = [];
+                    $.each(items, function (index, item) {
+                        if (item['roadText'].indexOf(containStr) > -1) {
+                            result.push(item);
+                        }
+                    });
+                    items = result;
+                }
+
+                return items;
+
+            }
+
+            //設定路段列表
+            function setRoadByArea(area1, area2, containStr){
+                //取得路名列表
+                var roadList = getRoadByArea(area1, area2, containStr);
+
+                var template = (function (){
+                    var html = $("template.temp-road1-block-item").html();
+                    return $(html).clone();
+                })();
+
+                var mix = '';
+
+                $.each(roadList, function (key, ele){
+                    template.text(ele['roadText']);
+                    mix += template[0].outerHTML;
+                })
+
+
+                $('.road-block .road1-block .road1-block-group').html(mix);
+            }
+            
+        </script>
+    </body>
+</html>
