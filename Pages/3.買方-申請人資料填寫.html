@@ -95,6 +95,11 @@
             }
 
             .body .content .addr-block-title .inputAreaBlock #inputArea {
+                pointer-events: none;
+            }
+
+
+            .body .content .addr-block-title .inputAreaBlock #inputArea {
                 cursor: pointer;
             }
 
@@ -507,130 +512,148 @@
         <div class="border-line"></div>
         
         <div class="body">
-            <div class="container container-sm title">申請人資料填寫</div>
+            <form id="needs-validation" novalidate>  
 
-            <div class="container container-sm content">
-                <div class="pc-letter-block-title" id="pc-letter-block-title">
-                    <ul class="form-check appr-item-list">
-                        <li class="item custom-checkbox">
-                            <input class="form-check-input custom-control-input" type="checkbox" value="" id="inputLetter" />
-                            <label class="form-check-label inputLetter-label custom-control-label" for="inputLetter">本人同意信義房屋以系統產製本文件，並以網路上傳確認碼或電子簽名方式取代書面簽名且同意信義房屋將紀錄相關交易歷程，以確保雙方權益。</label>
-                        </li>        
-                    </ul>  
-                </div>
+                <div class="container container-sm title">申請人資料填寫</div>
 
-                <div class="form-row phone-block-title">
-                    <div class="form-group col-md-6">
-                        <label for="inputPhone">聯絡電話 <span class="required">*</span></label>
-                        <input type="tel" class="form-control" id="inputPhone" placeholder="請輸入聯絡電話，例：0912345678">
+                <div class="container container-sm content">
+                    <div class="pc-letter-block-title" id="pc-letter-block-title">
+                        <ul class="form-check appr-item-list">
+                            <li class="item custom-checkbox">
+                                <input class="form-check-input custom-control-input" type="checkbox" value="" id="inputLetter" />
+                                <label class="form-check-label inputLetter-label custom-control-label" for="inputLetter">本人同意信義房屋以系統產製本文件，並以網路上傳確認碼或電子簽名方式取代書面簽名且同意信義房屋將紀錄相關交易歷程，以確保雙方權益。</label>
+                            </li>        
+                        </ul>  
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputId">身份證字號/統一編號 <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="inputId" placeholder="請輸入身分證字號">
-                    </div>
-                </div>
 
-                <div class="form-row addr-block-title">
-                    <div class="form-group col-md-3">
-                        <label>地址 <span class="required">*</span></label>
-                        <div class="inputAreaBlock" id="inputAreaBlock">
-                            <input type="text" class="form-control" id="inputArea" placeholder="縣市/區域" readonly>
-                            <input type="hidden" id="inputArea1Hidden" />
-                            <input type="hidden" id="inputArea2Hidden" />
-                            <div class="input-group-append inputAreaBlock-ico">
-                                <img src="../Res/caret-down-fill.svg">
+                    <div class="form-row phone-block-title">
+                        <div class="form-group col-md-6">
+                            <label for="inputPhone">聯絡電話 <span class="required">*</span></label>
+                            <input type="tel" class="form-control" id="inputPhone" placeholder="請輸入聯絡電話，例：0912345678" required>
+                            <div class="invalid-feedback">
+                                請記得填寫聯絡電話！
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputId">身份證字號/統一編號 <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="inputId" placeholder="請輸入身分證字號" required>
+                            <div class="invalid-feedback">
+                                請記得填寫身分證字號！
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-3 inputRoadGroup">
-                        <label class="empty-label">&nbsp;</label>
-                        <div class="inputRoadBlock" id="inputRoadBlock">
-                            <input type="text" class="form-control" id="inputRoad" placeholder="輸入路段">
-                            <div class="input-group-append inputRoadBlock-ico">
-                                <img src="../Res/caret-down-fill.svg">
+                    <div class="form-row addr-block-title">
+                        <div class="form-group col-md-3">
+                            <label>地址 <span class="required">*</span></label>
+                            <div class="inputAreaBlock" id="inputAreaBlock">
+                                <input type="text" class="form-control" id="inputArea" placeholder="縣市/區域" required>
+                                <input type="hidden" id="inputArea1Hidden" />
+                                <input type="hidden" id="inputArea2Hidden" />
+                                <div class="input-group-append inputAreaBlock-ico">
+                                    <img src="../Res/caret-down-fill.svg">
+                                </div>
+                                <div class="invalid-feedback">
+                                    請記得填寫縣市/區域！
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group col-md-6 inputFloorGroup">
-                        <label class="empty-label">&nbsp;</label>
-                        <input type="text" class="form-control" id="inputFloor" placeholder="輸入巷號樓層">
-                    </div>
 
-                    <div class="form-group col-md-9 inputOverseaRoadGroup">
-                        <label class="empty-label">&nbsp;</label>
-                        <textarea class="form-control" name="inputOverseaRoad" id="inputOverseaRoad"  placeholder="輸入海外地址"></textarea>
-                    </div>
-                </div>
-                
-                <div class="form-row addr-block">
-                    <div class="form-group addr-block-content" id="addr-block-content">
-                        <div class="mb-area1-header-block">
-                            <div class="mb-area1-header-block-title">縣市/區域</div>
-                            <div class="mb-area1-header-block-close" id="mb-area1-header-block-close">
-                                <img src="../Res/cancel.svg">
+                        <div class="form-group col-md-3 inputRoadGroup">
+                            <label class="empty-label">&nbsp;</label>
+                            <div class="inputRoadBlock" id="inputRoadBlock">
+                                <input type="text" class="form-control" id="inputRoad" placeholder="輸入路段" required>
+                                <div class="input-group-append inputRoadBlock-ico">
+                                    <img src="../Res/caret-down-fill.svg">
+                                </div>
+                                <div class="invalid-feedback">
+                                    請記得填寫路段！
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="area1-block">
+                        <div class="form-group col-md-6 inputFloorGroup">
+                            <label class="empty-label">&nbsp;</label>
+                            <input type="text" class="form-control" id="inputFloor" placeholder="輸入巷號樓層" required>
+                            <div class="invalid-feedback">
+                                請記得填寫巷號樓層！
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-9 inputOverseaRoadGroup">
+                            <label class="empty-label">&nbsp;</label>
+                            <textarea class="form-control" name="inputOverseaRoad" id="inputOverseaRoad"  placeholder="輸入海外地址" required></textarea>
+                            <div class="invalid-feedback">
+                                請記得填寫海外地址！
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row addr-block">
+                        <div class="form-group addr-block-content" id="addr-block-content">
+                            <div class="mb-area1-header-block">
+                                <div class="mb-area1-header-block-title">縣市/區域</div>
+                                <div class="mb-area1-header-block-close" id="mb-area1-header-block-close">
+                                    <img src="../Res/cancel.svg">
+                                </div>
+                            </div>
                             
-                        </div>
-                        
-                        <div class="area2-block" id="area2-block">
-                            <div class="mb-sub-area2-block" id="mb-sub-area2-block">
-                                <div class="mb-sub-area2-block-by-area1" id="mb-sub-area2-block-by-area1">台北市</div>
-                                <div class="mb-sub-area2-block-change-area1" id="mb-sub-area2-block-change-area1">切換縣市</div>
-                            </div>
-                            <div class="border-line"></div>
-                            <div class="mb-item-area2-block" id="mb-item-area2-block">
+                            <div class="area1-block">
                                 
                             </div>
                             
-                            <!-- <input type="submit" class="container container-sm btn-confirm-step" id="btn-confirm-step" value="確認"> -->
+                            <div class="area2-block" id="area2-block">
+                                <div class="mb-sub-area2-block" id="mb-sub-area2-block">
+                                    <div class="mb-sub-area2-block-by-area1" id="mb-sub-area2-block-by-area1">台北市</div>
+                                    <div class="mb-sub-area2-block-change-area1" id="mb-sub-area2-block-change-area1">切換縣市</div>
+                                </div>
+                                <div class="border-line"></div>
+                                <div class="mb-item-area2-block" id="mb-item-area2-block">
+                                    
+                                </div>
+                            </div>
+                            
                         </div>
-                        
                     </div>
-                </div>
 
-                <div class="form-row road-block">
-                    <div class="form-group road-block-content" id="road-block-content">
-                        <div class="mb-road1-header-block">
-                            <div class="mb-road1-header-block-title">路段</div>
-                            <div class="mb-road1-header-block-close" id="mb-road1-header-block-close">
-                                <img src="../Res/cancel.svg">
+                    <div class="form-row road-block">
+                        <div class="form-group road-block-content" id="road-block-content">
+                            <div class="mb-road1-header-block">
+                                <div class="mb-road1-header-block-title">路段</div>
+                                <div class="mb-road1-header-block-close" id="mb-road1-header-block-close">
+                                    <img src="../Res/cancel.svg">
+                                </div>
+                            </div>
+                            
+                            <div class="road1-block">
+                                <ul class="road1-block-group">
+                                </ul>
                             </div>
                         </div>
-                        
-                        <div class="road1-block">
-                            <ul class="road1-block-group">
-                            </ul>
+                    </div> 
+
+
+                    <div class="form-row sign-block">
+                        <div class="form-group col-md-12">
+                            <label for="inputId">申請人 
+                                <span class="required">*</span>
+                                <span class="sign-block-subtitle">(請核對是否為本人姓名 ，非本人不能簽署)</span>
+                            </label>
+                            <div class="clearboth"></div>
+                            <p class="sign-block-exp" id="sign-block-exp">林子軒</p>
+                            <input type="button" class="form-control btn-sign" id="inputSign" value="簽署" disabled />
+                            
+                            <div class="clearboth"></div>
                         </div>
                     </div>
-                </div> 
-
-
-                <div class="form-row sign-block">
-                    <div class="form-group col-md-12">
-                        <label for="inputId">申請人 
-                            <span class="required">*</span>
-                            <span class="sign-block-subtitle">(請核對是否為本人姓名 ，非本人不能簽署)</span>
-                        </label>
-                        <div class="clearboth"></div>
-                        <p class="sign-block-exp" id="sign-block-exp">林子軒</p>
-                        <input type="button" class="form-control btn-sign" id="inputSign" value="簽署" disabled />
-                        <div class="clearboth"></div>
-                    </div>
                 </div>
-            </div>
 
-            <input type="submit" class="container container-sm btn-next-step" value="下一步">
+                <input type="submit" class="container container-sm btn-next-step" value="下一步">
+            </form>
         </div>
 
-        <div class="border-line"></div>
-
-        <div class="container container-sm footer">
+        <div class="footer">
             <p class="footer-text">&copy; 信義房屋股份有限公司</p>
         </div>
 
@@ -655,11 +678,24 @@
         <script src="" async defer></script>
 
         <script type="text/javascript">
+             (function () {  
+                'use strict';  
+                window.addEventListener('load', function () {  
+                    var form = document.getElementById('needs-validation');  
+                    form.addEventListener('submit', function (event) {  
+                        if (form.checkValidity() === false) {  
+                            event.preventDefault();  
+                            event.stopPropagation();  
+                        }  
+                        form.classList.add('was-validated');  
+                    }, false);  
+                }, false);  
+            })(); 
+
+
             $(document).ready(function(){
                 setArea1();
             });
-
-
 
             //pc，地址縣市區域 & 路段 box隱藏
             $(document).click(function(e){
@@ -750,9 +786,13 @@
                     $('#inputArea1Hidden').val(area1Text);
                     $('#inputArea2Hidden').val(area2Text);
 
+                    $('#inputOverseaRoad').prop('required', false);
+
                     setRoadByArea(area1Text, area2Text, null);
 
                     $('#addr-block-content').hide(100);
+                }else{
+                    $('#inputOverseaRoad').prop('required', true);
                 }
 
                 var imgObj = $(this).closest('.content').find('#inputAreaBlock img');

@@ -1,5 +1,9 @@
 body{
     min-width: 320px;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .clearboth {
@@ -19,14 +23,25 @@ body{
     box-shadow: none !important;
     border-color: #52B24E !important;
 }
+.form-control.is-valid, .was-validated .form-control:valid,
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    background-image: none;
+    padding-right: 0.75rem !important;
+}
 
+.custom-control-input.is-valid~.custom-control-label, .was-validated .custom-control-input:valid~.custom-control-label {
+    color: #000;
+}
 
-.border-line {
+.custom-control-input.is-valid~.custom-control-label::before, .was-validated .custom-control-input:valid~.custom-control-label::before {
+    border-color: #B9B8B9;
+}
+
+.border-line{
     width: 100%;
     height: 1px;
     background: #E7E5E6;
 }
-
 .header {
 }
 
@@ -50,6 +65,8 @@ body{
 }
 .footer{
     height: 39px;
+    margin-top: auto;
+    border-top: 1px solid #E7E5E6;
 }
 .footer .footer-text {
     display: block;

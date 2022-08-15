@@ -7,6 +7,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="height=device-height, 
+                      width=device-width, initial-scale=1.0, 
+                      minimum-scale=1.0, maximum-scale=1.0, 
+                      user-scalable=no, target-densitydpi=device-dpi">
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,7 +92,7 @@
             }
 
             .sms-content-block {
-                position: fixed;
+                position: absolute;
                 top: 0;
                 left: 0;
                 background: rgba(0,0,0,0.5);
@@ -115,7 +119,6 @@
             }
 
             .sms-content-block .sms-content .sms-content-close img {
-                
                 width: 20px;
             }
 
@@ -144,12 +147,26 @@
                 margin-bottom: 60px;
             }
 
+            .sms-content-block .sms-content .sms-content-input-block .sms-content-input-gray .sms-content-hint {
+                display: none;
+            }
+
+            .sms-content-block .sms-content .sms-content-input-block .sms-content-input-gray .sms-content-hint span{
+                color: #52B24E;
+            }
+
             .sms-content-block .sms-content .sms-content-input-block .btn-sms-send {
                 background: transparent;
                 border: 1px solid #52B24E;
                 color: #52B24E;
                 height: 40px;
-                min-width: 150px;
+                margin-top: 31px;
+                padding: 0;
+            }
+
+            .sms-content-block .sms-content .sms-content-input-block .btn-sms-countdown {
+                display: none;
+                margin-top: 38px;
             }
 
             .sms-content-block .sms-content .sms-content-button-group {
@@ -198,6 +215,18 @@
                 .sms-content-block .sms-content .sms-content-button-group .sms-content-button {
                     width: 50%;
                     height: 40px;
+                }
+
+                .sms-content-block .sms-content .sms-content-input-block .btn-sms-countdown {
+                    text-align: center;
+                }
+
+                .sms-content-block .sms-content .sms-content-input-block .btn-sms-send {
+                    margin-top: 0px;
+                }
+
+                .sms-content-block .sms-content .sms-content-input-block .btn-sms-countdown {
+                    margin-top: 0px;
                 }
             }
 
@@ -281,7 +310,6 @@
                     <li class="item custom-checkbox">
                         <input class="form-check-input custom-control-input" type="checkbox" value="" id="item2" checked>
                         <label class="form-check-label custom-control-label" for="item2">要約書</label>
-
                     </li>
                     <li class="item custom-checkbox">
                         <input class="form-check-input custom-control-input" type="checkbox" value="" id="item3">
@@ -299,47 +327,137 @@
             <input type="submit" class="container container-sm btn-next-step" value="下一步">
         </div>
 
-        <div class="border-line"></div>
-
-        <div class="container container-sm footer">
+        <div class="footer">
             <p class="footer-text">&copy; 信義房屋股份有限公司</p>
         </div>
 
         <div class="sms-content-block">
             <div class="container container-sm sms-content">
-                <div class="sms-content-close" id="sms-content-close">
-                    <img src="../Res/cancel.svg">
-                </div>
-                <div class="container container-sm sms-content-title">簡訊動態密碼</div>
-            
-                <div class="sms-content-input-block">
-                    <div class="form-row sms-content-input-gray">
-                        <div class="form-group col-md-5">
-                            <label for="inputSmsP">簡訊動態驗證密碼</label>
-                            <input type="number" class="form-control" id="inputSmsP" placeholder="請輸入驗證碼">
-                        </div>
-                        <div class="form-group col-md-2 align-self-end">
-                            <input type="submit" class="container container-sm btn-sms-send" value="寄送驗證碼">
+
+                <form id="needs-validation" novalidate>  
+
+                    <div class="sms-content-close" id="sms-content-close">
+                        <img src="../Res/cancel.svg">
+                    </div>
+
+                    <div class="container container-sm sms-content-title">簡訊動態密碼</div>
+                
+                    <div class="sms-content-input-block">
+
+                        <div class="sms-content-input-gray">
+
+                            <div class="form-row sms-content-hint">
+                                <div class="form-group col-md-12">
+                                    <p>已將驗證碼發送至您的手機，請於<span>30分鐘</span>內輸入驗證，逾時驗證碼將會失效</p>
+                                </div>
+                            </div>                            
+
+                            <div class="row sms-content-p">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="inputSmsP">簡訊動態驗證密碼</label>
+                                        <input type="number" class="form-control" id="inputSmsP" placeholder="請輸入驗證碼" maxlength="6" onKeyPress="if(this.value.length==6) return false;" required>
+                                        <div class="invalid-feedback">
+                                            請記得填寫動態驗證密碼！
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="submit" class="container container-sm btn-sms-send" id="btn-sms-send" value="寄送驗證碼">
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="btn-sms-countdown"><span id="countdownTime"></span></p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
 
-                <!-- <div class="container container-sm sms-content-button-block">
                     <div class="sms-content-button-group">
-                        <input type="submit" class="sms-content-button btn-sms-cancel" value="取消">
-                        <input type="submit" class="sms-content-button btn-sms-confirm" value="確認">
+                        <input type="button" class="sms-content-button btn-sms-cancel" id="btn-sms-cancel" value="取消">
+                        <input type="submit" class="sms-content-button btn-sms-confirm" id="btn-sms-confirm" value="確認">
                     </div>
-                </div> -->
 
-                <div class="sms-content-button-group">
-                    <input type="submit" class="sms-content-button btn-sms-cancel" value="取消">
-                    <input type="submit" class="sms-content-button btn-sms-confirm" value="確認">
-                </div>
+                </form>
             </div>
         </div>
         
 
         
         <script src="" async defer></script>
+        <script type="text/javascript">
+            (function () {  
+                'use strict';  
+                window.addEventListener('load', function () {  
+                    var form = document.getElementById('needs-validation');  
+                    form.addEventListener('submit', function (event) {  
+                        if (form.checkValidity() === false) {  
+                            event.preventDefault();  
+                            event.stopPropagation();  
+                        }  
+                        form.classList.add('was-validated');  
+                    }, false);  
+                }, false);  
+            })(); 
+
+            $(document).ready(function(){
+                //setCountdownTime(1);
+            });
+            
+            //寄送簡訊
+            $('#btn-sms-send').on('click', this, function(){
+                $('#btn-sms-send').prop('disabled', true);
+                $('#btn-sms-send').prop('value', '重新發送');
+                setCountdownTime(30);
+                $('.sms-content-block .sms-content .sms-content-input-block .sms-content-input-gray .sms-content-hint').show(100);
+                $('.sms-content-block .sms-content .sms-content-input-block .btn-sms-countdown').show(100);
+            });
+
+            //點擊x / 取消按鈕，關閉簡訊倒數box
+            $('#sms-content-close, #btn-sms-cancel').on('click', this, function(){
+                $('body .sms-content-block').hide(100);
+            });
+
+            //點擊確認按鈕
+            $('#btn-sms-confirm').on('click', this, function(){
+                // $('body .sms-content-block').hide(100);
+            });
+
+            //簡訊倒數計時
+            function setCountdownTime(min){
+                var timer2 = min + ':01';
+                var interval = setInterval(function() {
+                    var timer = timer2.split(':');
+                    var minutes = parseInt(timer[0], 10);
+                    var seconds = parseInt(timer[1], 10);
+
+                    if(timer2 == '0:00') {
+                        clearInterval(interval);
+                        setCountdownTimeExpired();
+                        return;
+                    }
+
+                    --seconds;
+                    minutes = (seconds < 0) ? --minutes : minutes;
+                    if (minutes < 0) {
+                        clearInterval(interval);
+                    }
+                        
+                    seconds = (seconds < 0) ? 59 : seconds;
+                    seconds = (seconds < 10) ? '0' + seconds : seconds;
+                    $('#countdownTime').html('倒數：' + minutes + '分' + seconds + '秒');
+                    timer2 = minutes + ':' + seconds;
+                    
+                }, 1000);
+            }
+
+            //簡訊倒數計時，過期處理
+            function setCountdownTimeExpired() {
+                $('#btn-sms-send').prop('disabled', false);
+            }
+        </script>
     </body>
 </html>
